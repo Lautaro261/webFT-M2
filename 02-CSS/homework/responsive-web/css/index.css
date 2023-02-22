@@ -145,11 +145,14 @@ h5 {
   font-family: 'Russo One', sans-serif;
   color: #23293B;
 }
+h1 {
+  font-size: 3.4em;
+}
 h2 {
-  font-size: 3.2rem;
+  font-size: 3.2em;
 }
 h3 {
-  font-size: 2.8rem;
+  font-size: 2.8em;
 }
 p {
   font-size: 1.6rem;
@@ -160,6 +163,28 @@ p {
   width: 100%;
   margin: 0 auto;
 }
+.navBar {
+  background-color: #F6F6F6;
+  color: #454A59;
+  border: 1px solid #F1F1F1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 05em;
+  padding: 0.8em;
+}
+.navBar .opcionesNav {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1em;
+}
+@media (max-width: 500px) {
+  .navBar .opcionesNav {
+    width: 85%;
+  }
+}
 footer {
   color: #22283B;
   background: #f4f4f4;
@@ -169,6 +194,11 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.home .intro .headerImg {
+  width: 98%;
+  margin: 1%;
+  border-radius: 12px;
 }
 .home .intro h2 {
   padding: 15px;
@@ -186,6 +216,15 @@ footer {
   margin: 20px 2.5%;
   border-radius: 20px;
   height: 100%;
+}
+@media (max-width: 500px) {
+  .home .music-images .tecnologia,
+  .home .music-images .ondas {
+    display: none;
+  }
+  .home .music-images .auricular {
+    width: 100%;
+  }
 }
 .home .musica-nueva {
   padding: 15px;
@@ -212,6 +251,15 @@ footer {
 .home .actual .actual-text p {
   margin-bottom: 26px;
 }
+.home .actual .actual-text .btn {
+  width: fit-content;
+  height: fit-content;
+  border-radius: 5px;
+  color: #F6F6F6;
+  background-color: #22283A;
+  padding: 0.7em;
+  font-size: 1.5em;
+}
 .home .actual .actual-img {
   width: 46%;
   margin-left: 4%;
@@ -220,4 +268,30 @@ footer {
   width: 100%;
   height: auto;
   border-radius: 10px;
+}
+@media (max-width: 500px) {
+  .home .actual {
+    flex-direction: column-reverse;
+    width: 98%;
+    margin: 1%;
+    padding: 0px;
+  }
+  .home .actual .actual-img {
+    width: 100%;
+    margin-left: 0px;
+  }
+  .home .actual .actual-text {
+    width: 100%;
+  }
+  .home .actual .actual-text .btn {
+    width: 98%;
+    height: fit-content;
+    border-radius: 5px;
+    color: #F6F6F6;
+    background-color: #22283A;
+    padding: 0.7em;
+    font-size: 1.5em;
+    margin: 1%;
+    text-align: center;
+  }
 }

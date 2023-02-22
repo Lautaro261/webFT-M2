@@ -1,1 +1,27 @@
 // Código de Nav acá
+.navBar{
+    background-color: @wild-sand;
+    color: @river-bend;
+    border: 1px solid @sea-shell;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 05em;
+    padding: 0.8em;
+
+    
+
+    .opcionesNav{
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.1em;
+
+    }
+    @media(max-width:@phone){
+        .opcionesNav{
+            width: 85%;
+        }
+    }
+}
