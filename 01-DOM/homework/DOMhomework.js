@@ -1,10 +1,14 @@
 // Crear un array vacío llamado 'toDoItems'
 // Tu codigo acá:
+var toDoItems = [];
 
 // En la página 'index.html' hay un elemento span cuyo texto es 'Aplicación creada por:'.
 // Usando querySelector seleccionar dicho span por su id ('createdBy') y luego usando innerHTML
 // agregar tu nombre al final del texto actual. Ej: 'Aplicación creada por Franco'
 // Tu código acá:
+  
+var divNombre = document.querySelector('#createdBy')
+divNombre.innerHTML= 'Aplicacion creada por Nahuel'
 
 // Crear una clase denominada 'ToDo' cuyo constructor debe recibir un único parámetro del tipo string
 // con el nombre 'description' que será justamente la descripción del ToDo.
@@ -15,7 +19,8 @@
 
 function ToDo(description) {
   // Tu código acá
-  (this.description = description), (this.complete = false);
+  this.description = description, 
+  this.complete = false;
 }
 
 // Agregar un método denominado 'completeToDo' al prototipo de la clase ToDo
@@ -47,15 +52,33 @@ ToDo.prototype.completeToDo = function () {
 
 function buildToDo(todo, index) {
   // Tu código acá:
+  var toDoShell = document.createElement('div')
+  toDoShell.className = 'toDoShell'
+
+ var toDoText = document.createElement('span') 
+ toDoText.innerHTML = todo.description
+ toDoText.id = index
+
+ if(todo.complete){
+  toDoText.className = 'completeText'
+}
+toDoShell.append(toDoText)
+
+return toDoShell;
 }
 
 // La función 'buildToDos' debe crear un array de objetos toDo y devolverlo
+
 // Recibirá como parámetro un array de objetos ToDo
 // Utilizar el método map usando la función previamente creada ('buildToDo')
 // Devolver el nuevo array
 
 function buildToDos(toDos) {
   // Tu código acá:
+  const array = ToDos.map(function(todo, index){
+    return buildToDo(todo, index)
+  })
+  return array;
 }
 
 // La función 'displayToDos' se va a encargar de que se vean los toDo's en pantalla
