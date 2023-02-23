@@ -1,14 +1,18 @@
-var traverseDomAndCollectElements = function(matchFunc, startEl) {
+var traverseDomAndCollectElements = function(matchFunc, startEl= document.body) {
   var resultSet = [];
 
-  if (typeof startEl === "undefined") {
-    startEl = document.body;
-  }
+  
 
   // recorre el árbol del DOM y recolecta elementos que matchien en resultSet
   // usa matchFunc para identificar elementos que matchien
 
   // TU CÓDIGO AQUÍ
+  if(matchFunc(startEl)===true)resultSet.push(startEl)
+  for(let i=0; i<startEl.children.length; i++){
+    let resultado = traverseDomAndCollectElements(matchFunc,startEl.children[i])
+    resultSet=[...resultSet, ...resultado]
+  }
+  return resultSet
   
 };
 
@@ -36,6 +40,7 @@ var selectorTypeMatcher = function(selector) { //.container
 
 const matchFunctionMaker = function(selector) { // .container
   const selectorType = selectorTypeMatcher(selector);
+
   var matchFunction;
   if (selectorType === 'id') { 
    matchFunction=(element)=>{
@@ -54,6 +59,11 @@ const matchFunctionMaker = function(selector) { // .container
     matchFunction=(element)=>{
       const [tag, cls] = selector.split('.')  
       
+      if (matchFunctionMaker(tag)(element) && matchFunctionMaker('.'+cls)(element)){
+        return true
+      }else{
+        return false
+      }
     }
     
   } else if (selectorType === "tag") {
