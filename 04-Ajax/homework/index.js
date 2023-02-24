@@ -1,50 +1,52 @@
-const funcionHandler = (response) => {
-    console.log(response)
-    const [lista] = $('#lista')
-    response.forEach(user => {
-        console.log(user.name)
-        const nuevoLi = document.createElement('li')
-        nuevoLi.innerHTML = user.name
-        lista.append(nuevoLi)
+const [buttonDelete] = $("#delete");
+const [inputDelete] = $("#inputDelete");
+const [botoncito] = $("#boton");
+const [buttonBusqueda] = $("#search");
+const [inputBus] = $("#input");
 
-    });
-}
-const funcionGet = ()=> {
-    console.log('me hiciste click')
-    $.get(' http://localhost:5000/amigos', funcionHandler)
-}
+const funcionHandlerGet = (response) => {
+  console.log(response);
+  const [lista] = $("#lista");
+  response.forEach((user) => {
+    console.log(user.name);
+    const nuevoLi = document.createElement("li");
+    nuevoLi.innerHTML = user.name;
+    lista.append(nuevoLi);
+  });
+};
 
-const [botoncito] = $('#boton')
-botoncito.addEventListener('click',funcionGet)
+const funcionGet = () => {
+  console.log("me hiciste click");
+  $.get(" http://localhost:5000/amigos", funcionHandlerGet);
+};
 
-const [buttonBusqueda] = $('#search')
-const [inputBus]=$('#input')
+const funcionHandlerBus = (response) => {
+  console.log(response);
+  let [outputAmigo] = $("#amigo");
+  outputAmigo.innerHTML = response.name;
+  inputBus.value = "";
+};
 
+const funcionBusqueda = (event) => {
+  console.log(inputBus.value);
+  // tengo el numero ingresado
+  // ahora hacer un get a http://localhost:5000/amigos/2 usando el id
+  $.get(`http://localhost:5000/amigos/${inputBus.value}`, funcionHandlerBus);
+};
 
+const funcionHandlerDelete = () => {
+  console.log(`Quiere borrar el amigo ${inputDelete.value}`);
+  $.ajax({
+    type: "DELETE",
+    url: ` http://localhost:5000/amigos/${inputDelete.value}`,
+    succes: funcionDelete,
+  });
+};
 
-buttonBusqueda.addEventListener('click' , (evento)=>{
-    console.log(inputBus.value)
-    // tengo el numero ingresado 
-    // ahora hacer un get a http://localhost:5000/amigos/2 usando el id 
-    $.get(`http://localhost:5000/amigos/${inputBus.value}` , (response)=>{
-        console.log(response)
-        let [outputAmigo] = $('#amigo')
-        outputAmigo.innerHTML = response.name
-    })
+const funcionDelete = (response) => {
+  console.log(response);
+};
 
-})
-
-
-
-const [buttonDelete] = $('#delete')
-const [inputDelete] = $('#inputDelete')
-
-buttonDelete.addEventListener('click', ()=>{
-    console.log(`Quiere borrar el amigo ${inputDelete.value}`)
-    $.delete
-})
-
-
-
-
-
+botoncito.addEventListener("click", funcionGet);
+buttonBusqueda.addEventListener("click", funcionBusqueda);
+buttonDelete.addEventListener("click", funcionHandlerDelete);
