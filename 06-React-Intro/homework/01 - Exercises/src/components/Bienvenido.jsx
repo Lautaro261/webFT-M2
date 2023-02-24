@@ -1,4 +1,5 @@
 import React from "react";
+import Botones from "./Botones";
 
 const studentName = "Lautaro";
 const techSkills = ["Html", "Css", "JavaScript", "React", "Redux"];
@@ -17,6 +18,9 @@ export default function Bienvenido(props) {
           })
         }
       </ul>
+      <div>
+        <Botones alerts={alerts} />
+      </div>
     </div>
   )
 }
