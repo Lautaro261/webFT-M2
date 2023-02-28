@@ -19,31 +19,16 @@ function App () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
       <hr />
       <div>
         <Cards
           characters={characters}
+          
         />
       </div>
+
+
+
       <hr />
       <div>
         <SearchBar
