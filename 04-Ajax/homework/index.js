@@ -45,6 +45,7 @@ const funcionHandlerDelete = () => {
 
 const funcionDelete = (response) => {
   console.log(response);
+  
 };
 
 botoncito.addEventListener("click", funcionGet);

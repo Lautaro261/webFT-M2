@@ -1,0 +1,79 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #333;
+  }
+  
+  button {
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: white;
+    background-color: #7f00ff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #a347ff;
+  }
+  
+  /* Estilos específicos */
+  
+  #lista {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  #lista li {
+    margin-bottom: 10px;
+  }
+  
+  #search {
+    margin-left: 10px;
+  }
+  
+  #amigo {
+    margin-left: 10px;
+  }
+  
+  #delete {
+    margin-left: 10px;
+  }
+  
+  #success {
+    margin-left: 10px;
+  }
+  
+  input[type="text"] {
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    width: 50%;
+    margin-right: 10px;
+  }
+  
+  /* Paleta de violetas */
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #7f00ff;
+  }
+  
+  button, input[type="text"] {
+    background-color: #a347ff;
+  }
+  
+  button:hover {
+    background-color: #d580ff;
+  }
