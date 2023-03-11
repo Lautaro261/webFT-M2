@@ -16,7 +16,7 @@ export default function Zoo() {
 
     const handleInputChange = (event)=>{
       console.log(event)
-       setZoo(zoo.zooName = event) 
+       
    }  
    return (
       <div>
