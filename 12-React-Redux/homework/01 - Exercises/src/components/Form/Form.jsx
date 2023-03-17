@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import { connect } from 'react-redux';
 import { addProduct } from '../../redux/actions/actions'
 import Caja from '../../assets/caja.png';
@@ -16,6 +16,7 @@ class Form extends React.Component{
    }
 
    handleInputChange = (event) => {
+      event.preventDefault()
       this.setState({ ...this.state, [event.target.name]: event.target.value });
    }
    handleSubmit = ()=>{
